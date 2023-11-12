@@ -1,3 +1,16 @@
-export default function Home() {
-  return <h1>Dashboard</h1>;
+"use client";
+
+import { useEffect, useState } from "react";
+
+import { useStoreModal } from "@/hooks/use-store-modal";
+
+export default function SetupPage() {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
+
+  useEffect(() => {
+    if (!isOpen) onOpen();
+  }, [isOpen, onOpen]);
+
+  return <div className="flex justify-around items-center p-4">Root page</div>;
 }
