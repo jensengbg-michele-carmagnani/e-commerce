@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import { ModalProvider } from "@/providers/modal-provider";
+import ToasterProvider from "@/components/modals/toast-provider";
 
 export const metadata: Metadata = {
   title: "Admin dashboard",
@@ -20,6 +21,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
+          <ToasterProvider />
           <ModalProvider />
           {children}
         </body>
