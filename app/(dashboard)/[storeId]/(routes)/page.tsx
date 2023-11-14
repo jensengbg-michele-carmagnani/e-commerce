@@ -14,7 +14,11 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({
       id: storeId,
     },
   });
-  return <div>DashboardPage {store?.name}</div>;
+  return (
+    <div className="h-full flex items-center justify-center text-5xl">
+      {store?.name}
+    </div>
+  );
 };
 
 export default DashboardPage;
