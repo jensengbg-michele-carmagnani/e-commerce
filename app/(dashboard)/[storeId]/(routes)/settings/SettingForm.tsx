@@ -19,6 +19,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import toast from "react-hot-toast";
+import { useParams, useRouter } from "next/navigation";
+import axios from "axios";
 
 interface SettingFormPorps {
   initialData: Store;
@@ -32,6 +35,8 @@ type SettingFormValues = z.infer<typeof formSchema>;
 const SettingForm: React.FC<SettingFormPorps> = ({ initialData }) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const params = useParams();
 
   const form = useForm<SettingFormValues>({
     resolver: zodResolver(formSchema),
@@ -40,6 +45,16 @@ const SettingForm: React.FC<SettingFormPorps> = ({ initialData }) => {
 
   const onSubmit = async (data: SettingFormValues) => {
     console.log(data);
+    try {
+      setLoading(true);
+      await axios.patch(`/api/stores/${params.storeId}`, data);
+      router.refresh();
+      toast.success("Store updated");
+    } catch (error) {
+      toast.error("Somthing whent wrong");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <>
