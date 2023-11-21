@@ -9,7 +9,6 @@ export async function PATCH(
   try {
     const { name } = await req.json();
     const { userId } = auth();
-    console.log("DATA FROM API", name);
 
     if (!name) {
       return new NextResponse("Name is required", { status: 400 });
@@ -33,7 +32,7 @@ export async function PATCH(
 
     return NextResponse.json(store);
   } catch (error) {
-    console.log("[STORE_PATCH", error);
+    console.log("[STORE_PATCH]", error);
     return new NextResponse("Internal error server", { status: 500 });
   }
 }
@@ -60,7 +59,7 @@ export async function DELETE(
     });
     return NextResponse.json(store);
   } catch (error) {
-    console.log("[STORE_DELEte", error);
+    console.log("[STORE_DELETE]", error);
     return new NextResponse("Internal error server", { status: 500 });
   }
 }
