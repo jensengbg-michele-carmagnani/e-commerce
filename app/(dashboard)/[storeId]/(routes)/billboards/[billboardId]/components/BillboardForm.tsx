@@ -98,7 +98,7 @@ const BillboardForm: React.FC<BillboardFormPorps> = ({ initialData }) => {
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onCofirm={onCancel}
+        onConfirm={onCancel}
         loading={loading}
       />
       <div className="flex items-center justify-between">

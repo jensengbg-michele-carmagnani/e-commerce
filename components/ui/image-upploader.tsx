@@ -1,10 +1,10 @@
 "use client";
+import { useEffect, useState } from "react";
+import { CldUploadWidget } from "next-cloudinary";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { Button } from "./button";
 import { ImagePlus, ImagePlusIcon, Trash } from "lucide-react";
-import { CldUploadWidget } from "next-cloudinary";
 
 interface ImageUplaodPorps {
   disabled?: boolean;
@@ -20,7 +20,7 @@ const ImageUploader: React.FC<ImageUplaodPorps> = ({
   disabled,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
-
+  console.log("Value",value);
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -47,7 +47,13 @@ const ImageUploader: React.FC<ImageUplaodPorps> = ({
                 size={"icon"}
               >
                 <Trash className="h-4 w-4" />
-                <Image className="object-cover" src={url} alt={url} />
+                <Image
+                  className="object-cover"
+                  width={"200"}
+                  height={"200"}
+                  src={url}
+                  alt={url}
+                />
               </Button>
             </div>
           </div>
