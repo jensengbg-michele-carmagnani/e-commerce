@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 interface AlertModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onCofirm: () => void;
+  onConfirm: () => void;
   loading: boolean;
 }
 
 const AlertModal: React.FC<AlertModalProps> = ({
   isOpen,
   onClose,
-  onCofirm,
+  onConfirm,
   loading,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -32,9 +32,9 @@ const AlertModal: React.FC<AlertModalProps> = ({
     >
       <div className="pt-6 space-x-2 flex items-center justify-end w-full">
         <Button disabled={loading} variant={"outline"} onClick={onClose}>
-          Cancele
+          Cancel
         </Button>
-        <Button disabled={loading} variant={"destructive"} onClick={onCofirm}>
+        <Button disabled={loading} variant={"destructive"} onClick={onConfirm}>
           Continue
         </Button>
       </div>

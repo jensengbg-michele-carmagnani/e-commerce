@@ -67,7 +67,7 @@ const SettingForm: React.FC<SettingFormPorps> = ({ initialData }) => {
       router.refresh();
       toast.success("Store successfully deleted");
     } catch (error) {
-      toast.error("Make sur eyou removed all products and categories first");
+      toast.error("Make sure you removed all products and categories first");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -78,7 +78,7 @@ const SettingForm: React.FC<SettingFormPorps> = ({ initialData }) => {
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onCofirm={onCancel}
+        onConfirm={onCancel}
         loading={loading}
       />
       <div className="flex items-center justify-between">
