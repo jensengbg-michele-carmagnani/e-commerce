@@ -1,10 +1,11 @@
 # Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL
 
-
 For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
 
-This is a repository for a Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL
+<div align="left"><a href="e-commerce-git-main-jensengbg-michele-carmagnani.vercel.app
+" alt="demo live">Live App</a><</div>
 
+This is a repository for a Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL
 
 Key Features:
 
@@ -44,7 +45,6 @@ npm i
 
 ### Setup .env file
 
-
 ```js
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
@@ -68,11 +68,11 @@ STRIPE_WEBHOOK_SECRET=
 ```
 
 ### Connect to PlanetScale and Push Prisma
+
 ```shell
 npx prisma generate
 npx prisma db push
 ```
-
 
 ### Start the app
 
@@ -84,6 +84,6 @@ npm run dev
 
 Running commands with npm `npm run [command]`
 
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
+| command | description                              |
+| :------ | :--------------------------------------- |
+| `dev`   | Starts a development instance of the app |
