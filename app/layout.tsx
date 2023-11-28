@@ -18,9 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        elements: {
+          form: "w-full",
+          formButtonPrimary:
+            "bg-slate-500 hover:bg-slate-400 text-sm normal-case",
+        },
+      }}
+    >
       <html lang="en">
-        <body className={""}>
+        <body>
           <ToasterProvider />
           <ModalProvider />
           {children}
