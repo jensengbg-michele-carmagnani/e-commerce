@@ -1,9 +1,10 @@
 # Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL
 
 For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
+For DEMO [APP](https://e-commerce-git-main-jensengbg-michele-carmagnani.vercel.app/)
 
-<div align="left"><a href="e-commerce-git-main-jensengbg-michele-carmagnani.vercel.app
-" alt="demo live">Live App</a><</div>
+
+
 
 This is a repository for a Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL
 
