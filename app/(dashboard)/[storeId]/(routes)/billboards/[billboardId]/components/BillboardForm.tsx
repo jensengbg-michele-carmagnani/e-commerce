@@ -41,7 +41,6 @@ const BillboardForm: React.FC<BillboardFormPorps> = ({ initialData }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const params = useParams();
-  const origin = useOrigin();
   const title = initialData ? "edit billboard" : " CreateBillboard";
   const description = initialData ? "edit billboard" : " Add a new billboard";
   const toastMessage = initialData ? "Billboard updated" : "Billboard created";
@@ -67,7 +66,7 @@ const BillboardForm: React.FC<BillboardFormPorps> = ({ initialData }) => {
         await axios.post(`/api/${params.storeId}/billboards`, data);
       }
       router.refresh();
-      router.push("/");
+      router.push(`/${params.storeId}/billboards`);
       toast.success(toastMessage);
     } catch (error) {
       toast.error("Somthing went wrong");
@@ -83,6 +82,7 @@ const BillboardForm: React.FC<BillboardFormPorps> = ({ initialData }) => {
         `/api/${params.storeId}/billboards/${params.billboardId}`
       );
       router.refresh();
+      router.push(`${params.storeId}/billboards`);
       toast.success("Billboard successfully deleted");
     } catch (error) {
       toast.error(
@@ -162,7 +162,6 @@ const BillboardForm: React.FC<BillboardFormPorps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
-      <Separator />
     </>
   );
 };

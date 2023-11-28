@@ -20,7 +20,7 @@ const ImageUploader: React.FC<ImageUplaodPorps> = ({
   disabled,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
-  console.log("Value",value);
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -47,15 +47,9 @@ const ImageUploader: React.FC<ImageUplaodPorps> = ({
                 size={"icon"}
               >
                 <Trash className="h-4 w-4" />
-                <Image
-                  className="object-cover"
-                  width={"200"}
-                  height={"200"}
-                  src={url}
-                  alt={url}
-                />
               </Button>
             </div>
+            <Image className=" w-full" fill src={url} alt={url} />
           </div>
         ))}
       </div>
