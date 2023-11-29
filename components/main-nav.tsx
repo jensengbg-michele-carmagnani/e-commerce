@@ -12,9 +12,9 @@ export function MainNav({
   const params = useParams();
   const routes = [
     {
-      href: `/${params.storeId}/settings`,
-      lable: "Setting",
-      active: pathname === `/${params.storeId}/setting`,
+      href: `/${params.storeId}`,
+      lable: "Home",
+      active: pathname === `/${params.storeId}`,
     },
     {
       href: `/${params.storeId}/billboards`,
@@ -22,9 +22,14 @@ export function MainNav({
       active: pathname === `/${params.storeId}/billboards`,
     },
     {
-      href: `/${params.storeId}`,
-      lable: "Home",
-      active: pathname === `/${params.storeId}`,
+      href: `/${params.storeId}/categories`,
+      lable: "Categories",
+      active: pathname === `/${params.storeId}/categories`,
+    },
+    {
+      href: `/${params.storeId}/settings`,
+      lable: "Setting",
+      active: pathname === `/${params.storeId}/setting`,
     },
   ];
 
