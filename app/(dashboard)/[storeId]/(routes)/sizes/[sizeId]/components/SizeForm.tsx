@@ -83,9 +83,7 @@ const SizeForm: React.FC<SizeFormPorps> = ({ initialData }) => {
       router.push(`${params.storeId}/sizes`);
       toast.success("Size successfully deleted");
     } catch (error) {
-      toast.error(
-        "Make sure you removed all products using this size first"
-      );
+      toast.error("Make sure you removed all products using this size first");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -118,13 +116,13 @@ const SizeForm: React.FC<SizeFormPorps> = ({ initialData }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 w-full"
         >
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-2 gap-8">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Lable</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
@@ -153,7 +151,6 @@ const SizeForm: React.FC<SizeFormPorps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
-            
           </div>
           <Button disabled={loading} className="ml-auto " type="submit">
             {action}
