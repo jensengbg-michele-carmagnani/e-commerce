@@ -1,12 +1,12 @@
 import prismadb from "@/lib/prismadb";
 import React from "react";
-interface DashboardPageProps {
+interface SizesPageProps {
   params: {
     storeId: string;
   };
 }
 
-const DashboardPage: React.FC<DashboardPageProps> = async ({
+const SizesPage: React.FC<SizesPageProps> = async ({
   params: { storeId },
 }) => {
   const store = await prismadb.store.findFirst({
@@ -21,4 +21,4 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({
   );
 };
 
-export default DashboardPage;
+export default SizesPage;
