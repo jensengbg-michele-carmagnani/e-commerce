@@ -13,15 +13,15 @@ import { Separator } from "@/components/ui/separator";
 interface ColorClientProps {
   data: ColorColumn[];
 }
-const ColorClient: React.FC<SizeClientProps> = ({ data }) => {
+const ColorClient: React.FC<ColorClientProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
   return (
     <>
       <div className=" flex items-center justify-between">
         <Heading
-          title={`Sizes ${data.length}`}
-          description="Manage Sizes for your store"
+          title={`Colors ${data.length}`}
+          description="Manage Colors for your store"
         />
         <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
           <Plus className="mr-2 h-4 w-4" />
@@ -30,9 +30,9 @@ const ColorClient: React.FC<SizeClientProps> = ({ data }) => {
       </div>
       <Separator />
       <DataTable columns={columns} data={data} filterKey="name" />
-      <Heading title="API" description="API call Size" />
+      <Heading title="API" description="API call Color" />
       <Separator />
-      <ApiList entityName="sizes" entityIdName="sizeId" />
+      <ApiList entityName="colors" entityIdName="colorId" />
     </>
   );
 };
