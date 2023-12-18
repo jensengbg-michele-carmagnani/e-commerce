@@ -37,6 +37,11 @@ export function MainNav({
       active: pathname === `/${params.storeId}/corors`,
     },
     {
+      href: `/${params.storeId}/products`,
+      lable: "Products",
+      active: pathname === `/${params.storeId}/products`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       lable: "Setting",
       active: pathname === `/${params.storeId}/setting`,
