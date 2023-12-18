@@ -5,14 +5,7 @@ import * as z from "zod";
 import Heading from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  Billboard,
-  Category,
-  Color,
-  Image,
-  Product,
-  Size,
-} from "@prisma/client";
+import { Category, Color, Image, Product, Size } from "@prisma/client";
 import { Trash } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,7 +24,6 @@ import toast from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import AlertModal from "@/components/modals/alert-modal";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUploader from "@/components/ui/image-upploader";
 import {
   Select,
@@ -100,14 +92,14 @@ const ProductForm: React.FC<ProductFormPorps> = ({
       setLoading(true);
       if (initialData) {
         await axios.patch(
-          `/api/${params.storeId}/billboards/${params.billboardId}`,
+          `/api/${params.storeId}/products/${params.productId}`,
           data
         );
       } else {
-        await axios.post(`/api/${params.storeId}/billboards`, data);
+        await axios.post(`/api/${params.storeId}/products`, data);
       }
       router.refresh();
-      router.push(`/${params.storeId}/billboards`);
+      router.push(`/${params.storeId}/products`);
       toast.success(toastMessage);
     } catch (error) {
       toast.error("Somthing went wrong");
@@ -119,16 +111,12 @@ const ProductForm: React.FC<ProductFormPorps> = ({
   const onCancel = async () => {
     try {
       setLoading(true);
-      await axios.delete(
-        `/api/${params.storeId}/billboards/${params.billboardId}`
-      );
+      await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
       router.refresh();
-      router.push(`${params.storeId}/billboards`);
-      toast.success("Billboard successfully deleted");
+      router.push(`${params.storeId}/products`);
+      toast.success("Products successfully deleted");
     } catch (error) {
-      toast.error(
-        "Make sure you removed all categories using this billboard first"
-      );
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
       setOpen(false);
