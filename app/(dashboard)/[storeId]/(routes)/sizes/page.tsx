@@ -28,4 +28,4 @@ const SizesPage = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-export default BillboardsPage;
+export default SizesPage;
