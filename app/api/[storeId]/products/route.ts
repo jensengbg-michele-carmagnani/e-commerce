@@ -32,7 +32,7 @@ export async function POST(
     if (!sizeId) return new NextResponse("Size is required", { status: 400 });
 
     if (!images || !images.length)
-      return new NextResponse("Images  are required", { status: 400 });
+      return new NextResponse("Images are required", { status: 400 });
 
     if (!name) return new NextResponse("Name is required", { status: 400 });
 
@@ -82,7 +82,7 @@ export async function GET(
     const categoryId = searchParams.get("categoryId") || undefined;
     const colorId = searchParams.get("colorId") || undefined;
     const sizeId = searchParams.get("sizeId") || undefined;
-    const isFeature = searchParams.get("isFeatured");
+    const isFeatured = searchParams.get("isFeatured");
 
     if (!params.storeId)
       return new NextResponse("Store id is required", { status: 400 });
@@ -93,7 +93,7 @@ export async function GET(
         categoryId,
         colorId,
         sizeId,
-        isFeatured: isFeature ? true : undefined,
+        isFeatured: isFeatured ? true : undefined,
         isArchived: false,
       },
       include: {

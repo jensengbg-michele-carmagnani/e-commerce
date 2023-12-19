@@ -34,11 +34,15 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
-interface ProductFormPorps {
-  initialData: (Product & { images: Image[] }) | null;
-  sizes: Size[];
+interface ProductFormProps {
+  initialData:
+    | (Product & {
+        images: Image[];
+      })
+    | null;
   categories: Category[];
   colors: Color[];
+  sizes: Size[];
 }
 const formSchema = z.object({
   name: z.string().min(1),
@@ -47,13 +51,13 @@ const formSchema = z.object({
   categoryId: z.string().min(1),
   colorId: z.string().min(1),
   sizeId: z.string().min(1),
-  isFeatured: z.boolean(),
-  isArchived: z.boolean(),
+  isFeatured: z.boolean().default(false).optional(),
+  isArchived: z.boolean().default(false).optional(),
 });
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
-const ProductForm: React.FC<ProductFormPorps> = ({
+const ProductForm: React.FC<ProductFormProps> = ({
   initialData,
   categories,
   sizes,
@@ -96,12 +100,15 @@ const ProductForm: React.FC<ProductFormPorps> = ({
           data
         );
       } else {
+        console.log("new product");
         await axios.post(`/api/${params.storeId}/products`, data);
       }
       router.refresh();
       router.push(`/${params.storeId}/products`);
       toast.success(toastMessage);
     } catch (error) {
+      console.log(error);
+
       toast.error("Somthing went wrong");
     } finally {
       setLoading(false);
